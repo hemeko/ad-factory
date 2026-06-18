@@ -33,15 +33,15 @@ bash skills/ad-factory/scripts/check_env.sh   # 필수/선택·계정·크레딧
 
 ## 설치
 
-> 📦 **마케터(비개발자)는 단계별 가이드 [INSTALL.md](INSTALL.md)를 보세요** — mac/win, 비공개 repo 접근(`gh auth`·초대), Docker·higgsfield·OpenAI 키 입력까지 그림처럼 따라가도록 정리돼 있습니다.
+> 📦 **설치는 [INSTALL.md](INSTALL.md)를 보세요**(mac/win 단계별). 가장 쉬운 방법: Claude Code에게 INSTALL.md 링크를 주고 "설치 도와줘"라고 하면 AI가 읽고 환경 점검·안내합니다(공개 repo라 인증 불필요). Docker·higgsfield·OpenAI 키 포함.
 
 ```bash
 # 로컬(개발/시험):
 claude --plugin-dir /path/to/ad-factory-plugin
 
-# 마켓플레이스(배포):
-/plugin marketplace add <your-org>/<marketplace-repo>
-/plugin install ad-factory@<marketplace-name>
+# 마켓플레이스(배포, 공개):
+/plugin marketplace add hemeko/ad-factory
+/plugin install ad-factory@ad-factory-marketplace
 ```
 
 ## 사용

@@ -1,0 +1,31 @@
+{
+  "name": "ad-factory",
+  "displayName": "Ad Factory",
+  "version": "0.1.0",
+  "description": "제품 에셋과 컨셉으로 숏폼(9:16) 광고영상을 반자동 제작 — 디스커버리(역질문)→페르소나→시놉시스→컷신 이미지→클립→editly 편집을 분석/페르소나/이미지/클립/편집 + QA 에이전트와 사람 게이트로 진행.",
+  "keywords": ["advertising", "video", "ugc", "shortform", "automation", "marketing"],
+  "license": "MIT",
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "userConfig": {
+    "openai_api_key": {
+      "type": "string",
+      "title": "OpenAI API Key",
+      "description": "OpenAI TTS(보이스) 생성용. 비우면 macOS say 또는 직접 녹음 오디오를 사용. 시스템 키체인에 저장되며 평문으로 노출되지 않습니다.",
+      "sensitive": true
+    },
+    "tts_engine": {
+      "type": "string",
+      "title": "기본 TTS 엔진",
+      "description": "보이스 기본 생성 방식: openai(키 필요) / say(macOS) / provided(직접 녹음). 키가 없으면 say로 폴백.",
+      "default": "openai"
+    },
+    "openai_tts_voice": {
+      "type": "string",
+      "title": "OpenAI 보이스",
+      "description": "OpenAI TTS voice 이름: alloy / echo / fable / onyx / nova / shimmer.",
+      "default": "nova"
+    }
+  }
+}

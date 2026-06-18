@@ -1,0 +1,18 @@
+{
+  "name": "ad-factory-marketplace",
+  "owner": {
+    "name": "Hemeko",
+    "email": "minjung@hemeko.com"
+  },
+  "description": "Ad Factory — 숏폼 광고영상 반자동 제작 플러그인",
+  "plugins": [
+    {
+      "name": "ad-factory",
+      "displayName": "Ad Factory",
+      "source": ".",
+      "description": "제품 에셋과 컨셉으로 숏폼(9:16) 광고영상을 반자동 제작 (분석→페르소나→시놉시스→이미지→클립→편집, 사람 게이트)",
+      "version": "0.1.0",
+      "keywords": ["advertising", "video", "ugc", "shortform", "automation"]
+    }
+  ]
+}

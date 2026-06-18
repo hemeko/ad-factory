@@ -1,0 +1,14 @@
+# 기본 예시: ugc-review (토킹헤드). 컷=hook/main/closer + endcard. motion에 talking/lipsync 포함 → ad-clip이 seedance 선택.
+cuts:
+  - {id: hook, purpose: 훅(시선), shot: tight selfie holding product, motion: talking lip-sync, frames: {start: frames/hook.png}, caption: hook}
+  - {id: main, purpose: 메인(시연·특징), shot: medium show product on fingertips, motion: talking lip-sync, frames: {start: frames/main.png}}
+  - {id: closer, purpose: 마무리·추천 + CTA테일, shot: wide smile + point down, motion: talking lip-sync, frames: {start: frames/closer.png}, caption: cta}
+  - {id: endcard, purpose: CTA 엔드카드, image: assets/product/product_7.jpg, text: [HAUA]}
+
+# --- 변형 예시: ugc-day-progression (액션·롤링, kling 무음, speed로 배속) ---
+# cuts:
+#   - {id: intro, purpose: 제품 짜기 훅, shot: side-profile squeeze small grainy balm onto outer upper arm, frames: {start: frames/intro_squeeze.png}, motion: gentle squeeze + push-in, caption: hook, speed: 0.6}
+#   - {id: day1, purpose: Day1 롤링+고마쥬, shot: roll mid outer arm white gommage, frames: {start: frames/day1_gommage.png}, motion: continuous rolling, caption: "DAY 1", speed: 0.5}
+#   - {id: day3, purpose: Day3 롤링+고마쥬, shot: roll upper arm, frames: {start: frames/day3_gommage.png}, motion: continuous rolling, caption: "DAY 3", speed: 0.5}
+#   - {id: payoff, purpose: Day7 매끈·물광, shot: smooth glowing arm hand glide, frames: {start: frames/day7_reveal.png}, motion: slow push-in, caption: closing, speed: 1.0}
+#   - {id: endcard, purpose: CTA, image: assets/product/product_7.jpg, text: [HAUA, CELLUMIDE LHA PEELING CLEANSING BALM]}

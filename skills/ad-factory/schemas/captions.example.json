@@ -1,0 +1,8 @@
+{
+  "hook":    { "text": "Rough bumpy arm skin?", "position": "top" },
+  "DAY 1":   { "text": "DAY 1", "position": "top-left" },
+  "DAY 3":   { "text": "DAY 3", "position": "top-left" },
+  "DAY 5":   { "text": "DAY 5", "position": "top-left" },
+  "DAY 7":   { "text": "DAY 7", "position": "top-left" },
+  "closing": { "text": "Smoother. Softer. Glowing.", "position": "bottom" }
+}

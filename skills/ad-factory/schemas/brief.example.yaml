@@ -1,0 +1,36 @@
+# 기본 예시: ugc-review (토킹헤드 Hook→Main→Closer). `template` 필드로 컨셉 지정.
+template: ugc-review
+product: {brand: HAUA, name: CELLUMIDE LHA PEELING CLEANSING BALM, type: peeling cleansing balm, texture: thick grainy white scrub (holds shape), key_ingredients: [LHA 0.1%, Squalane 10000ppm]}
+concept_note: 한 번 세안으로 즉각 클렌징되는 사용감을 크리에이터가 직접 리뷰
+model: {ethnicity: Black, gender: female, build: slim, persona_mode: 가상(특정인 아님) → persona 마스터+보드}
+tone: trendy UGC
+platform: {ratio: "9:16", length_sec: 15}
+claim_level: cosmetic-appearance-only
+# 토킹헤드 전용 — 모놀로그 대본(첫 단어 금지 준수) + 단어수
+monologue:
+  lang: en
+  hook: "This balm melts a full face of makeup in one go."
+  main: "LHA and squalane deep-clean without ever leaving skin tight."
+  closer: "One wash and it's so smooth — link's in my bio."
+  word_counts: {hook: 11, main: 11, closer: 11}
+# 오디오 소스(역질문으로 확정): mode=provided(직접 제공)/openai(OpenAI TTS)/say(macOS 검증용). gen_tts.sh로 생성.
+audio_source: {mode: openai, voice: nova}   # openai voice: alloy/echo/fable/onyx/nova/shimmer · say: Samantha(en)/Yuna(ko)
+# 세그먼트별 오디오 경로(seedance --audio 입력). provided면 사용자가 audio/에 둔 파일을 그대로 사용.
+audio_path: {hook: audio/hook.mp3, main: audio/main.mp3, closer: audio/closer.mp3}
+captions: {lang: en, hook: "Makeup gone in one wash", cta: "Link in bio"}
+cta: {brand: HAUA, line: "", handle: ""}
+assets_dir: projects/ugc-review/assets
+references: {model: assets/model/model_ref.jpg, product_cuts: [assets/product/product_7.jpg, assets/product/texture_2.jpg]}
+
+# --- 변형 예시: ugc-day-progression (시간경과 before/after, kling 무음) ---
+# template: ugc-day-progression
+# product: {brand: HAUA, name: CELLUMIDE LHA PEELING CLEANSING BALM, type: peeling cleansing balm, texture: thick grainy white scrub}
+# concern: keratosis pilaris (모공각화증)
+# area: outer upper arm
+# model: {ethnicity: white Caucasian, gender: female, build: slim}
+# platform: {ratio: "9:16", length_sec: 20}
+# days: [1, 3, 5, 7]
+# skin_curve: {1: moderate, 3: noticeably improved, 5: nearly clear, 7: flawless dewy}
+# locations: {1: bright bathroom warm-morning, 3: bedroom window, 5: warm room, 7: vanity/mirror}
+# captions: {lang: en, hook: "Rough bumpy arm skin?", closing: "Smoother. Softer. Glowing."}
+# references: {composition: assets/composition/pose_ref.jpg, condition: assets/reference/kp_ref.jpg, gommage_gif: assets/reference/gommage_ref.gif}

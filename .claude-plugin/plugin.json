@@ -1,12 +1,11 @@
 {
   "name": "ad-factory",
   "displayName": "Ad Factory",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "제품 에셋과 컨셉으로 숏폼(9:16) 광고영상을 반자동 제작 — 디스커버리(역질문)→페르소나→시놉시스→컷신 이미지→클립→editly 편집을 분석/페르소나/이미지/클립/편집 + QA 에이전트와 사람 게이트로 진행.",
   "keywords": ["advertising", "video", "ugc", "shortform", "automation", "marketing"],
   "license": "MIT",
   "skills": "./skills/",
-  "agents": "./agents/",
   "commands": "./commands/",
   "userConfig": {
     "openai_api_key": {

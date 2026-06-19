@@ -1,0 +1,20 @@
+{
+  "name": "ad-factory-marketplace",
+  "interface": {
+    "displayName": "Ad Factory"
+  },
+  "plugins": [
+    {
+      "name": "ad-factory",
+      "source": {
+        "source": "local",
+        "path": "../.."
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Marketing"
+    }
+  ]
+}

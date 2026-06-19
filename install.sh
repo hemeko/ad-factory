@@ -29,22 +29,14 @@ if [[ "$(uname)" != "Darwin" ]]; then
   exit 1
 fi
 
-HAS_CLAUDE=0
-HAS_CODEX=0
-[[ -f "$HOME/.claude/plugins/known_marketplaces.json" && \
-   -f "$HOME/.claude/plugins/installed_plugins.json" ]] && HAS_CLAUDE=1
-[[ -d "$HOME/.codex/plugins" && -f "$HOME/.codex/config.toml" ]] && HAS_CODEX=1
-
-if [[ $HAS_CLAUDE -eq 0 && $HAS_CODEX -eq 0 ]]; then
-  err "Claude Desktop 또는 Codex가 설치되어 있지 않습니다."
-  err "  Claude Desktop: https://claude.ai/download"
-  err "  Codex:          https://openai.com/codex"
-  err "설치 후 한 번 실행한 뒤 다시 시도하세요."
+if [[ ! -f "$HOME/.claude/plugins/known_marketplaces.json" || \
+      ! -f "$HOME/.claude/plugins/installed_plugins.json" ]]; then
+  err "Claude Desktop이 설치되어 있지 않습니다."
+  err "https://claude.ai/download 에서 설치 후 다시 실행하세요."
   exit 1
 fi
 
-[[ $HAS_CLAUDE -eq 1 ]] && ok "Claude Desktop 확인"
-[[ $HAS_CODEX  -eq 1 ]] && ok "Codex 확인"
+ok "Claude Desktop 확인"
 
 # ── 2. 다운로드 (공통) ─────────────────────────────────────────────────────────
 echo ""
@@ -127,25 +119,8 @@ PYEOF
   ok "Claude Desktop 플러그인 등록 완료"
 }
 
-# ── 3-B. Codex 설치 ────────────────────────────────────────────────────────────
-install_codex() {
-  echo ""
-  echo "[2/4] Codex 플러그인 설치 중..."
 
-  # 기존 마켓플레이스 제거 후 재등록
-  codex plugin marketplace remove "$MARKETPLACE_ID" 2>/dev/null || true
-  codex plugin marketplace add "https://github.com/$REPO.git" 2>&1 \
-    | grep -v "^$" | sed 's/^/  /' || { err "Codex 마켓플레이스 등록 실패"; return 1; }
-
-  # 플러그인 설치
-  codex plugin add "$PLUGIN_NAME@$MARKETPLACE_ID" 2>&1 \
-    | grep -v "^$" | sed 's/^/  /' || { err "Codex 플러그인 설치 실패"; return 1; }
-
-  ok "Codex 플러그인 등록 완료"
-}
-
-[[ $HAS_CLAUDE -eq 1 ]] && install_claude
-[[ $HAS_CODEX  -eq 1 ]] && install_codex
+install_claude
 
 # ── 4. 의존성 설치 ──────────────────────────────────────────────────────────────
 echo ""
@@ -189,20 +164,10 @@ echo -e "${GREEN}  ad-factory 설치 완료!${NC}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "다음 단계:"
-STEP=1
-if [[ $HAS_CLAUDE -eq 1 && $HAS_CODEX -eq 1 ]]; then
-  echo "  $STEP. Claude Desktop / Codex 완전히 종료 후 재시작"
-elif [[ $HAS_CLAUDE -eq 1 ]]; then
-  echo "  $STEP. Claude Desktop 완전히 종료 후 재시작"
-else
-  echo "  $STEP. Codex 완전히 종료 후 재시작"
-fi
-STEP=2
-echo "  $STEP. higgsfield CLI 설치 (공식 사이트 참고)"
-STEP=3
-echo "  $STEP. higgsfield auth login  ← 본인 계정으로 1회 로그인"
-STEP=4
-echo "  $STEP. '광고 만들어줘' 입력"
+echo "  1. Claude Desktop 완전히 종료 후 재시작"
+echo "  2. higgsfield CLI 설치 (공식 사이트 참고)"
+echo "  3. higgsfield auth login  ← 본인 계정으로 1회 로그인"
+echo "  4. '광고 만들어줘' 입력"
 echo ""
 if ! command -v higgsfield >/dev/null 2>&1; then
   warn "higgsfield CLI가 설치되어 있지 않습니다. 위 2번 단계를 완료하세요."

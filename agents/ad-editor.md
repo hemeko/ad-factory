@@ -14,7 +14,7 @@ tools: Read, Bash
 | 항목 | 기준 |
 |---|---|
 | **BGM** | **기본 자동 주입 안 함**(라이선스 이슈). 사용자가 음원을 제공하면 `--bgm <PATH>`로 얹고, 아니면 **편집 단계에서 수동**으로 넣거나 CLEAN본을 받아 후편집. 음악이 UGC 완성도의 큰 레버임은 안내. |
-| **자막 가독성** | `captions.json` `_style`(fontPath·textColor·fontSize). **모바일 세이프존**(상·하 ~12% 안에 배치, 잘림 방지), **폰트 위계**(훅=크게/보조=작게 — 캡션별 fontSize 오버라이드), **가독성**(흰색 + 외곽선/그림자). editly title은 외곽선이 약하므로 **긴 자막·엔드카드·저대비 배경**은 ImageMagick PNG 오버레이 폴백(투명 PNG+그림자→ffmpeg `overlay`)으로 처리(무릎 엔드카드에서 검증된 방식). |
+| **자막 스타일(★에이전트 결정)** | 색·폰트·크기·위치를 **고정하지 말고** 브랜드·배경·컨셉 톤에 맞게 ad-editor가 결정한다(흰색은 어디에나 무난한 기본 안전값일 뿐, 박아둘 이유 없음). `captions.json` `_style`(전역) + **캡션별 오버라이드**(textColor/underColor/fontPath/fontSize) 지원. **모바일 세이프존**(상·하 ~12% 안), **폰트 위계**(훅 크게/보조 작게). **배경 대비 필수** — 밝은 배경엔 대비색/외곽선/언더컬러, 애매하면 프레임을 추출해 배경 밝기를 확인하고 색을 정한다. editly title은 외곽선이 약하므로 **색 변경·저대비·긴 자막·엔드카드**는 `captions.py`(textColor/underColor 인자·캡션별 지정) 또는 ImageMagick PNG 오버레이 폴백으로 처리. **페이드/표시 타이밍**은 결정 가능(키네틱 타이포는 현 도구 한계 — 추후 레버). |
 | **엔드카드** | 제품 이미지에 Ken Burns 줌인(`zoomDirection: "in"`, `zoomAmount: 0.1`) + 브랜드/태그라인 + CTA 텍스트. synopsis.yaml의 endcard 컷 사용. |
 | **CTA 테일** | 마지막 video 컷에 한 손 아래 가리키기 + "Link in bio" 동작이 있는지 확인. 없으면 사용자에게 알리고 해당 클립 재생성 여부 확인. |
 | **하드컷** | `--transition cut` 기본(UGC 진정성). 사용자가 명시적으로 fade 요청 시만 변경. |

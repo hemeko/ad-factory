@@ -129,26 +129,17 @@ PYEOF
 
 # ── 3-B. Codex 설치 ────────────────────────────────────────────────────────────
 install_codex() {
-  local CODEX_DIR="$HOME/.codex"
-  local CACHE_DIR="$CODEX_DIR/plugins/cache/$MARKETPLACE_ID/$PLUGIN_NAME/$COMMIT_SHA"
-  local CONFIG="$CODEX_DIR/config.toml"
-  local PLUGIN_KEY="\"$PLUGIN_NAME@$MARKETPLACE_ID\""
-
   echo ""
   echo "[2/4] Codex 플러그인 설치 중..."
 
-  # 기존 버전 제거 (SHA가 다른 경우)
-  local PARENT
-  PARENT="$CODEX_DIR/plugins/cache/$MARKETPLACE_ID/$PLUGIN_NAME"
-  [[ -d "$PARENT" ]] && rm -rf "$PARENT"
+  # 기존 마켓플레이스 제거 후 재등록
+  codex plugin marketplace remove "$MARKETPLACE_ID" 2>/dev/null || true
+  codex plugin marketplace add "https://github.com/$REPO.git" 2>&1 \
+    | grep -v "^$" | sed 's/^/  /' || { err "Codex 마켓플레이스 등록 실패"; return 1; }
 
-  mkdir -p "$CACHE_DIR"
-  cp -r "$SRC_DIR/." "$CACHE_DIR/"
-
-  # config.toml 에 플러그인 항목 추가 (중복 방지)
-  if ! grep -qF "[plugins.$PLUGIN_KEY]" "$CONFIG" 2>/dev/null; then
-    printf '\n[plugins.%s]\nenabled = true\n' "$PLUGIN_KEY" >> "$CONFIG"
-  fi
+  # 플러그인 설치
+  codex plugin add "$PLUGIN_NAME@$MARKETPLACE_ID" 2>&1 \
+    | grep -v "^$" | sed 's/^/  /' || { err "Codex 플러그인 설치 실패"; return 1; }
 
   ok "Codex 플러그인 등록 완료"
 }

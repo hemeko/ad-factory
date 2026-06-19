@@ -1,0 +1,25 @@
+{
+  "name": "ad-factory",
+  "version": "0.2.1",
+  "description": "제품 에셋과 컨셉으로 숏폼(9:16) 광고영상을 반자동 제작 — 디스커버리→페르소나→시놉시스→컷신 이미지→클립→편집을 서브에이전트와 사람 게이트로 진행.",
+  "author": {
+    "name": "Hemeko",
+    "email": "minjung@hemeko.com"
+  },
+  "homepage": "https://github.com/hemeko/ad-factory",
+  "repository": "https://github.com/hemeko/ad-factory",
+  "license": "MIT",
+  "keywords": ["advertising", "video", "ugc", "shortform", "automation", "marketing"],
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "interface": {
+    "displayName": "Ad Factory",
+    "shortDescription": "숏폼 광고영상 반자동 제작",
+    "longDescription": "제품 에셋과 컨셉으로 숏폼(9:16) 광고영상을 반자동 제작합니다. 디스커버리(역질문) → 페르소나 → 시놉시스 → 컷신 이미지 → 클립 → editly 편집을 전담 서브에이전트와 사람 게이트로 진행합니다.",
+    "developerName": "Hemeko",
+    "category": "Marketing",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://github.com/hemeko/ad-factory",
+    "defaultPrompt": ["이 제품으로 광고 영상 만들어줘"]
+  }
+}

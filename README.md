@@ -3,16 +3,29 @@
 제품 에셋과 컨셉으로 숏폼(9:16) 광고영상을 반자동 제작하는 Claude Code 플러그인.
 디스커버리(역질문) → 페르소나 → 시놉시스 → 컷신 이미지 → 클립 → editly 편집을 전담 서브에이전트와 **사람 게이트**로 진행합니다.
 
-## 🚀 빠른 시작 (마케터 — 비개발자)
-설치를 직접 다 외울 필요 없습니다. **Claude Code를 설치·로그인**한 뒤, Claude에게 이 한 줄만 말하세요:
+## 🚀 빠른 시작
 
-> "https://raw.githubusercontent.com/hemeko/ad-factory/main/INSTALL.md 를 읽고, 내 OS와 설치 상태를 점검해서 ad-factory 플러그인 설치를 단계별로 도와줘. 로그인·앱 설치(Docker 등)는 내가 직접 할 테니 명령·확인만 주고, 자동으로 가능한 점검·설치는 실행해줘."
+### Claude Desktop 앱에서 (권장 — 비개발자)
 
-→ AI가 가이드를 읽고 **환경 점검 → 자동 설치(가능한 것) → 나머지 단계 안내 → 오류 진단**까지 도와줍니다. 설치가 끝나면 제품 자료를 폴더에 넣고 **"이 제품으로 광고 영상 만들어줘"**.
+Claude Desktop을 열고 이렇게 말하세요:
 
-- 📄 직접 따라 하려면: **[INSTALL.md](INSTALL.md)** (mac/win 단계별)
-- 👥 운영자가 마케터에게 보낼 안내문: **[ONBOARDING.md](ONBOARDING.md)**
+> "https://raw.githubusercontent.com/hemeko/ad-factory/main/install.sh 를 curl로 받아서 실행해줘"
+
+→ Claude가 **플러그인 설치 → 의존성(ffmpeg 등) 설치 → 완료 안내**까지 자동으로 진행합니다.
+
+### 터미널에서 직접
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/hemeko/ad-factory/main/install.sh | bash
+```
+
+설치 후 **Claude Desktop을 재시작**하면 바로 사용 가능합니다.
+
+---
+
 - 미리 준비물: higgsfield 계정+크레딧(필수), OpenAI 키(선택·보이스)
+- 📄 단계별 상세 안내: **[INSTALL.md](INSTALL.md)**
+- 👥 팀 배포용 안내문: **[ONBOARDING.md](ONBOARDING.md)**
 
 ## 구성
 - **스킬**: `ad-factory` (오케스트레이터)
@@ -44,15 +57,16 @@ bash skills/ad-factory/scripts/check_env.sh   # 필수/선택·계정·크레딧
 
 ## 설치
 
-> 📦 **설치는 [INSTALL.md](INSTALL.md)를 보세요**(mac/win 단계별). 가장 쉬운 방법: Claude Code에게 INSTALL.md 링크를 주고 "설치 도와줘"라고 하면 AI가 읽고 환경 점검·안내합니다(공개 repo라 인증 불필요). Docker·higgsfield·OpenAI 키 포함.
+**일반 사용자** — 위 [빠른 시작](#-빠른-시작) 참고 (`curl` 한 줄 또는 Claude Desktop에게 요청).
 
+**개발자 / Claude Code CLI**
 ```bash
-# 로컬(개발/시험):
-claude --plugin-dir /path/to/ad-factory-plugin
-
-# 마켓플레이스(배포, 공개):
+# 마켓플레이스 등록:
 /plugin marketplace add hemeko/ad-factory
 /plugin install ad-factory@ad-factory-marketplace
+
+# 로컬 개발:
+claude --plugin-dir /path/to/ad-factory-plugin
 ```
 
 ## 사용

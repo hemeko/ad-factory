@@ -1,5 +1,5 @@
 # 샷별 프롬프트 템플릿 — ugc-review
-공통 접미: `Photorealistic vertical 9:16, authentic UGC influencer smartphone selfie, cool neutral daylight, natural cohesive lighting, realistic skin, anatomically correct hands and body — exactly two hands, natural proportions, no extra hands or fingers, no visible camera rig (tripod/stand/selfie-stick), no text, no watermark, no overlay.`
+공통 접미: `Photorealistic vertical 9:16, authentic UGC influencer smartphone selfie, cool neutral daylight, natural cohesive lighting, realistic skin, anatomically correct hands and body — exactly two hands, natural proportions, no extra hands or fingers, no visible camera rig (tripod/stand/selfie-stick), no text, no watermark, no overlay. ◆품질: true-to-life natural color, high micro-detail (real skin pores · product texture, no over-smoothing), soft natural light, crisp authentic phone-camera focus. NEGATIVE: plastic/waxy skin, over-glossy·oily highlights, distorted·garbled text/logos, warped anatomy, oversaturation, generic AI sheen.`
 
 ---
 

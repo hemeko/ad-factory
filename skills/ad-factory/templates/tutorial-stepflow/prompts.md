@@ -1,5 +1,5 @@
 # 샷별 프롬프트 템플릿
-공통 접미(ugc-day-progression과 동일): `Photorealistic vertical 9:16, authentic UGC influencer smartphone photo, natural cohesive lighting, realistic skin, anatomically correct hands — natural proportions, no extra hands or fingers, no visible camera rig, no text, no watermark.`
+공통 접미(ugc-day-progression과 동일): `Photorealistic vertical 9:16, authentic UGC influencer smartphone photo, natural cohesive lighting, realistic skin, anatomically correct hands — natural proportions, no extra hands or fingers, no visible camera rig, no text, no watermark. ◆품질: true-to-life natural color, high micro-detail (real skin pores · product texture, no over-smoothing), soft natural light, crisp authentic phone-camera focus. NEGATIVE: plastic/waxy skin, over-glossy·oily highlights, distorted·garbled text/logos, warped anatomy, oversaturation, generic AI sheen.`
 
 ## persona (Soul ID 기반 얼굴형)
 Soul ID 학습 후 `--soul-id <ref_id>`로 적용. 별도 이미지 프롬프트 없이 Soul ID가 인물 고정.

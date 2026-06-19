@@ -1,5 +1,5 @@
 # 샷별 프롬프트 템플릿
-공통 접미: `Photorealistic vertical 9:16, authentic UGC influencer smartphone photo, natural cohesive lighting, realistic skin, anatomically correct hands — natural proportions, no extra hands or fingers, no visible camera rig, no text, no watermark.`
+공통 접미: `Photorealistic vertical 9:16, authentic UGC influencer smartphone photo, natural cohesive lighting, realistic skin, anatomically correct hands — natural proportions, no extra hands or fingers, no visible camera rig, no text, no watermark. ◆품질: true-to-life natural color, high micro-detail (real skin pores · product texture, no over-smoothing), soft natural light, crisp authentic phone-camera focus. NEGATIVE: plastic/waxy skin, over-glossy·oily highlights, distorted·garbled text/logos, warped anatomy, oversaturation, generic AI sheen.`
 
 ## master
 Use the FIRST reference for body pose / camera angle / framing. Use ONLY the {{condition}} texture pattern from the SECOND reference (not its skin tone). A {{model}} seen {{framing}}, {{wardrobe}}, in {{location}}. The {{area}} skin clearly shows {{condition}} ({{condition_detail}}). {접미}

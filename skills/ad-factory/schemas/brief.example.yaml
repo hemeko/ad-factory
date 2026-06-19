@@ -34,3 +34,10 @@ references: {model: assets/model/model_ref.jpg, product_cuts: [assets/product/pr
 # locations: {1: bright bathroom warm-morning, 3: bedroom window, 5: warm room, 7: vanity/mirror}
 # captions: {lang: en, hook: "Rough bumpy arm skin?", closing: "Smoother. Softer. Glowing."}
 # references: {composition: assets/composition/pose_ref.jpg, condition: assets/reference/kp_ref.jpg, gommage_gif: assets/reference/gommage_ref.gif}
+
+# --- 집행 성과 (Phase 4 피드백 루프 — 광고 집행 후 기록, 다음 기획에 반영) ---
+# performance:
+#   hook_rate: null     # 3초 시청유지율(%) 등
+#   ctr: null           # 클릭률
+#   conversion: null    # 전환율
+#   notes: ""           # 어떤 훅·앵글·소구가 먹혔나 → references/ad-patterns.md 5번에 축적

@@ -11,7 +11,7 @@
       "displayName": "Ad Factory",
       "source": ".",
       "description": "제품 에셋과 컨셉으로 숏폼(9:16) 광고영상을 반자동 제작 (분석→페르소나→시놉시스→이미지→클립→편집, 사람 게이트)",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "keywords": ["advertising", "video", "ugc", "shortform", "automation"]
     }
   ]

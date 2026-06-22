@@ -11,19 +11,25 @@ while [[ $# -gt 0 ]]; do case "$1" in
   *) echo "unknown arg: $1" >&2; exit 2;; esac; done
 [[ -z "$PROMPT" ]] && { echo "ERROR: --prompt required" >&2; exit 2; }
 [[ -z "$OUT" ]] && { echo "ERROR: --out required" >&2; exit 2; }
-# preflight: required prompt anchors (tokens kept in sync with templates/*/prompts.md)
+# preflight: prompt anchors. Source of truth = guardrails/common.md.
+#   HARD (BLOCK): Anatomical 'no extra hands' — applies to all person prompts (common.md anatomical rule).
+#   SOFT (WARN):  Beauty Floor 'symmetrical features' (persona/face cuts only) and
+#                 Modesty 'collarbone' (only when wardrobe is in frame) — not universal, so warn not block.
 if [[ "$SKIP_ANCHOR" != "1" ]]; then
-  missing=()
   shopt -s nocasematch
-  [[ "$PROMPT" == *"symmetrical features"* ]] || missing+=("Beauty Floor (symmetrical features)")
-  [[ "$PROMPT" == *"collarbone"* ]]           || missing+=("Modesty Triplet (collarbone)")
-  [[ "$PROMPT" == *"no extra hands"* ]]       || missing+=("Anatomical (no extra hands)")
-  shopt -u nocasematch
-  if [[ ${#missing[@]} -gt 0 ]]; then
-    echo "ERROR: required prompt anchors missing:" >&2
-    printf '  - %s\n' "${missing[@]}" >&2
-    echo "Add them to --prompt, or pass --skip-anchor-check to override (use only for product-less persona shots)." >&2
+  if [[ "$PROMPT" != *"no extra hands"* ]]; then
+    shopt -u nocasematch
+    echo "ERROR: required anatomical anchor missing: 'no extra hands' (no extra hands, fingers, or limbs)" >&2
+    echo "Add it to --prompt, or pass --skip-anchor-check to override (use only for non-person shots)." >&2
     exit 2
+  fi
+  soft_missing=()
+  [[ "$PROMPT" == *"symmetrical features"* ]] || soft_missing+=("Beauty Floor (symmetrical features) — add for persona/face cuts")
+  [[ "$PROMPT" == *"collarbone"* ]]           || soft_missing+=("Modesty Triplet (collarbone) — add when wardrobe is in frame")
+  shopt -u nocasematch
+  if [[ ${#soft_missing[@]} -gt 0 ]]; then
+    echo "WARN: context anchors missing (ignore if not applicable to this cut):" >&2
+    printf '      - %s\n' "${soft_missing[@]}" >&2
   fi
 fi
 # preflight: product reference (WARN only — product-less hook/closer cuts are legitimate)

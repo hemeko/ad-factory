@@ -44,7 +44,10 @@ higgsfield soul-id wait <id>
 
 ### reference_id 인도
 학습 완료 → `reference_id`(= `<id>`)를 오케스트레이터에 전달.
-이후 생성 명령에서:
+
+> **주의: 아래 커맨드는 페르소나 서브게이트(샘플 1장 확인) 전용이다. 본 컷·보드 이미지 생성은 절대 직접 호출하지 말고 `ad-image` 에이전트(→ `gen_image.sh`)에 위임한다.** 직접 `higgsfield generate create`로 본 생성을 하면 제품 레퍼런스·필수 구문·보드·QA가 모두 빠진다.
+
+서브게이트 샘플 생성 예시:
 ```bash
 # 이미지
 higgsfield generate create text2image_soul_v2 \
@@ -58,6 +61,7 @@ higgsfield generate create soul_cinema_studio \
 ### 사람 서브게이트
 Soul 학습 결과 샘플 이미지 1장을 생성 후 사람에게 확인:
 "이 인물로 진행하겠습니까? (Y / 수정)" → 승인 후 다음 단계.
+승인 후 본 컷·보드 생성은 `ad-image` 에이전트가 담당한다(이 단계에서 직접 생성하지 않는다).
 
 ---
 
